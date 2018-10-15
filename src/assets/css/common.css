@@ -1,0 +1,316 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font: 14px/1.6 "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "\9ED1\4F53", Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: inherit;
+}
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+  border: none;
+}
+
+iframe {
+  display: block;
+}
+
+/* 去掉列表前的标识，li 会继承 */
+
+ol,
+ul,
+dt,
+dd,
+dl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* background-color: #fff; */
+}
+
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  /* padding: 20px; */
+}
+
+button {
+  padding: 0;
+}
+
+input[type='text'] {
+  text-indent: 0px;
+}
+
+i {
+  font-style: normal
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+
+a:hover {
+  text-decoration: none;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+  text-decoration: none;
+  color: #636363;
+}
+
+/* 去除 ie6 & ie7 焦点点状线 */
+
+a:focus,
+*:focus {
+  outline: none;
+}
+
+/* 清除浮动 */
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+  /* background-color: #fff; */
+  margin-top: 8px;
+  /* for ie6 & ie7 */
+}
+
+.clear {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+/* 设置显示和隐藏，通常用来与 js 配合 */
+
+.hide {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+/* 设置浮动，减少浮动带来的 bug */
+
+.fl,
+.fr {
+  display: inline;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.main {
+  width: 1200px;
+  min-height: 375px;
+  margin: 0 auto;
+}
+
+.background-color {
+  background: #fff;
+}
+
+.nowrap {
+  display: inline-block;
+  width: 180px;
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-detail {
+  display: inline-block;
+  width: 280px;
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-detail-index {
+  display: inline-block;
+  width: 240px;
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-system {
+  display: inline-block;
+  width: 580px;
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-h3 {
+  font-size: 14px;
+  color: #007cc6;
+  font-weight: bold;
+}
+
+.nowrap4 {
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-h4 {
+  font-size: 14px;
+}
+
+.nowrap:hover {
+  overflow: hidden !important;
+}
+
+.nowrap-market {
+  width: 235px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-notice-and-information {
+  width: 140px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.nowrap-notice-and-information:hover {
+  color: #f08900;
+  cursor: pointer;
+}
+
+.nowrap-trading-zone {
+  width: 136px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+}
+
+.content-style {
+  max-width: 500px;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.h-normal {
+  width: 469px;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.white-space {
+  white-space: pre-wrap;
+  max-width: 1200px;
+}
+
+.white-space .ql-align-center {
+  text-align: center;
+}
+
+.white-space img {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  height: 40%;
+}
+
+
+
