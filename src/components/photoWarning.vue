@@ -4,6 +4,8 @@
         <el-tab-pane label="抓拍/告警数据可视化" name="first"></el-tab-pane>
         <el-tab-pane label="抓拍/告警数据统计表" name="second"></el-tab-pane>
     </el-tabs>
+    <el-card>
+        
     <el-form :model="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-row>
             <el-col :span="6">
@@ -22,6 +24,7 @@
             </el-col>
         </el-row>
     </el-form>
+    </el-card>
 
     <div class="custom-tree-container">
         <div class="block">
