@@ -26,16 +26,22 @@
         </el-menu>
       </el-col>
     </el-row>
+    <div>
+        <photoWarning></photoWarning>
+         <router-view></router-view>
+    </div>
+   
 </div>
 
 </template>
-
 <script>
+import PhotoWarning from '@/components/photoWarning'
 export default {
     data() {
         return {
 
         }
-    }
+    },
+    components:{ PhotoWarning }
 }
 </script>
