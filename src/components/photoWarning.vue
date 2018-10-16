@@ -1,30 +1,122 @@
-<template >
+<template>
 <div>
-    <div>
-        <el-tabs v-model="activeName" @tab-click="handleClick" type="border-card">
-        <el-tab-pane label="抓拍/告警数据可视化" name="first">抓拍/告警数据可视化</el-tab-pane>
-        <el-tab-pane label="抓拍/告警数据统计表" name="second">抓拍/告警数据统计表</el-tab-pane>
-        </el-tabs>
+    <el-tabs v-model="activeName" @tab-click="handleClick" type="border-card">
+        <el-tab-pane label="抓拍/告警数据可视化" name="first"></el-tab-pane>
+        <el-tab-pane label="抓拍/告警数据统计表" name="second"></el-tab-pane>
+    </el-tabs>
+    <el-form :model="ruleForm" label-width="100px" class="demo-ruleForm">
+        <el-row>
+            <el-col :span="6">
+                <el-form-item label="开始时间:">
+                    <el-time-picker v-model="ruleForm.startTime"></el-time-picker>
+                </el-form-item>
+            </el-col>
+            <el-col :span="7">
+                <el-form-item label="结束时间:">
+                    <el-time-picker v-model="ruleForm.startTime"></el-time-picker>
+                </el-form-item>
+            </el-col>
+            <el-col :span="3">
+                <el-button type="primary" @click="find">查询</el-button>
+                 <el-button type="primary" @click="find">导出</el-button>
+            </el-col>
+        </el-row>
+    </el-form>
+
+    <div class="custom-tree-container">
+        <div class="block">
+            <el-row>
+                <el-col :span="8">
+                    <p>区域</p>
+                </el-col>
+                <el-col :span="8">
+                    <p>抓拍数</p>
+                </el-col>
+                <el-col :span="8">
+                    <p>告警数</p>
+                </el-col>
+            </el-row>
+             <el-tree
+                :data="cityData"
+                node-key="id"
+                :expand-on-click-node="false"
+                :render-content="renderContent">
+    </el-tree>          
+        </div>
     </div>
-    <div>
-        
-    </div>
-   
 </div>
-     
 </template>
+
 <script>
 export default {
-    data(){
-        return{
-          activeName:'first'  
+    data() {
+        const data = [{
+            id: 1,
+            label: '昆明市',
+            children: [{
+                    id: 4,
+                    label: '五华区',
+                },
+                {
+                    id: 9,
+                    label: '西山区',
+                }
+            ]
+        }, {
+            id: 2,
+            label: '曲靖市',
+            children: [{
+                id: 5,
+                label: '二级 2-1'
+            }, {
+                id: 6,
+                label: '二级 2-2'
+            }]
+        }, {
+            id: 3,
+            label: '丽江市',
+            children: [{
+                id: 7,
+                label: '二级 3-1'
+            }, {
+                id: 8,
+                label: '二级 3-2'
+            }]
+        }];
+        return {
+            activeName: 'first',
+            ruleForm: {
+                satrtTime: "",
+                endTime: "",
+            },
+            cityData: JSON.parse(JSON.stringify(data)),
         }
     },
-    methods:{
-        handleClick:function(tab, event){
+    methods: {
+        renderContent(h, {node, data,store}) {
+            return ( 
+                < span class = "custom-tree-node" >
+                    <span > {node.label} </span>
+                     <span>
+              <el-button size="mini" type="text" on-click={ () => this.append(data) }>Append</el-button>
+              <el-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
+            </span>
+                     </span>);
+                },
 
         }
-    }
 
-}
+    }
 </script>
+
+<style>
+.custom-tree-node {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-right: 8px;
+    border: 1px;
+}
+</style>
