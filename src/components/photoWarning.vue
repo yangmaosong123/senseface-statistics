@@ -10,17 +10,17 @@
         <el-row>
             <el-col :span="6">
                 <el-form-item label="开始时间:">
-                     <el-date-picker v-model="ruleForm.startTime" type="date" placeholder="选择开始日期"></el-date-picker>
+                     <el-date-picker v-model="ruleForm.startTime" type="date" placeholder="选择开始日期"   value-format="yyyy-MM-dd"    @blur="handleCompareTheSize"></el-date-picker>
                 </el-form-item>
             </el-col>
             <el-col :span="7">
                 <el-form-item label="结束时间:">
-                     <el-date-picker v-model="ruleForm.endTime" type="date" placeholder="选择结束日期"></el-date-picker>
+                     <el-date-picker v-model="ruleForm.endTime" type="date" placeholder="选择结束日期"  value-format="yyyy-MM-dd"    @blur="handleCompareTheSize"></el-date-picker>
                 </el-form-item>
             </el-col>
             <el-col :span="3">
-                <el-button type="primary" @click="find">查询</el-button>
-                 <el-button type="primary" @click="find">导出</el-button>
+                <el-button :disabled="formDisabled" type="primary" @click="find" >查询</el-button>
+                 <el-button :disabled="formDisabled" type="primary" @click="find">导出</el-button>
             </el-col>
         </el-row>
     </el-form>
@@ -93,9 +93,11 @@ export default {
                 endTime: "",
             },
             cityData: JSON.parse(JSON.stringify(data)),
+            formDisabled: false,//查询（导出）按钮控制
         }
     },
     methods: {
+        //树形结构
         renderContent(h, {node, data,store}) {
             return ( 
                 < span class = "custom-tree-node" >
@@ -106,6 +108,20 @@ export default {
             </span>
                      </span>);
                 },
+
+        //时间控制
+      handleCompareTheSize() {
+        let _this = this;
+        if (_this.ruleForm.startTime && _this.ruleForm.endTime)
+          if (_this.ruleForm.startTime > _this.ruleForm.endTime) {
+            _this.$message({
+              type: 'warning',
+              message: '开始时间必须小于结束时间，请返回修改！'
+            });
+            _this.formDisabled = true;
+          } else _this.formDisabled = false;
+        else _this.formDisabled = false;
+      },
 
         }
 
