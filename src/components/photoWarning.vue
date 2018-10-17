@@ -10,12 +10,12 @@
         <el-row>
             <el-col :span="6">
                 <el-form-item label="开始时间:">
-                    <el-time-picker v-model="ruleForm.startTime"></el-time-picker>
+                     <el-date-picker v-model="ruleForm.startTime" type="date" placeholder="选择开始日期"></el-date-picker>
                 </el-form-item>
             </el-col>
             <el-col :span="7">
                 <el-form-item label="结束时间:">
-                    <el-time-picker v-model="ruleForm.startTime"></el-time-picker>
+                     <el-date-picker v-model="ruleForm.endTime" type="date" placeholder="选择结束日期"></el-date-picker>
                 </el-form-item>
             </el-col>
             <el-col :span="3">
